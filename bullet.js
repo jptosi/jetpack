@@ -1,4 +1,4 @@
- // Variable
+ // Variables
 const bulletImg = new Image();
 bulletImg.src = './assets/bullets.png'
 const bulletPixelX = 320;

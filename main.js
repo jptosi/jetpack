@@ -2,12 +2,13 @@
 let frames = 0;
 let playerChoice = 1;
 let backgroundChoice = 3;
-const gameState = {
-    menu: 0,
-    running: 1,
-    pause: 2,
-    gameover: 3
+const GAMESTATE = {
+    MENU: 0,
+    RUNNING: 1,
+    PAUSE: 2,
+    GAMEOVER: 3
 }
+let gameState = GAMESTATE.RUNNING;
 
 // init Canvas
 const canvas = document.getElementById('canvas1');
@@ -32,6 +33,11 @@ player = new Player(playerChoice);
 
 // UPDATE
 function update() {
+
+    // Check PAUSED
+    if (gameState === GAMESTATE.PAUSE){
+        return;
+    }
     // background Update
     layers.forEach(layer => {
         layer.update();

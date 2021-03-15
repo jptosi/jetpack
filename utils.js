@@ -9,11 +9,26 @@ function keyDown(event) {
         fire = true;
         bulletSpaw();
     }
+    if(event.key === "Escape") {
+        console.log("Avant: " + gameState);
+        tooglePause();
+        console.log("Avant: " + gameState);
+    }
 }
 
 function keyUp(event) {
     if (event.keyCode == 38) {
         keyBoost = false;
+    }
+}
+
+/** Functions
+**/
+function tooglePause(){
+    if (gameState === GAMESTATE.RUNNING){
+        gameState = GAMESTATE.PAUSE;
+    } else {
+        gameState = GAMESTATE.RUNNING;
     }
 }
 

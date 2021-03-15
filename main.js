@@ -2,11 +2,11 @@
 let frames = 0;
 let playerChoice = 1;
 let backgroundChoice = 3;
-const state = {
+const gameState = {
     menu: 0,
-    running : 1,
-    pause: 1,
-    gameover:2
+    running: 1,
+    pause: 2,
+    gameover: 3
 }
 
 // init Canvas
@@ -24,14 +24,14 @@ document.addEventListener("keyup", keyUp, false);
 
 // init Layers
 let layers = [];
-layers.push(new Background(Backgrounds[2 * backgroundChoice],0.05));
-layers.push(new Background(Backgrounds[(2 * backgroundChoice) + 1],0.3));
+layers.push(new Background(Backgrounds[2 * backgroundChoice], 0.05));
+layers.push(new Background(Backgrounds[(2 * backgroundChoice) + 1], 0.3));
 
 // init Players
 player = new Player(playerChoice);
 
 // UPDATE
-function update(){
+function update() {
     // background Update
     layers.forEach(layer => {
         layer.update();
@@ -40,25 +40,25 @@ function update(){
     // GUI Update
 
     // Ennemies Update
-    for (i = enemies.length - 1; i >= 0 ; i--){
+    for (i = enemies.length - 1; i >= 0; i--) {
         enemies[i].update();
         // remove enemies out of screen
-        if (enemies[i].onScreen === false || enemies[i].delete === true){
-            enemies.splice(i,1);
+        if (enemies[i].onScreen === false || enemies[i].delete === true) {
+            enemies.splice(i, 1);
         }
     }
     // Bullet update
-    for (i = bullets.length - 1 ; i >= 0; i--) {
-        if(bullets[i].isHit === true || bullets[i].delete === true){
-            bullets.splice(i,1);
+    for (i = bullets.length - 1; i >= 0; i--) {
+        if (bullets[i].isHit === true || bullets[i].delete === true) {
+            bullets.splice(i, 1);
         } else {
             bullets[i].update();
         }
     };
 
-    for (i = explosions.length -1 ; i >= 0 ; i--) {
-        if(explosions[i].delete === true){
-            explosions.splice(i,1);
+    for (i = explosions.length - 1; i >= 0; i--) {
+        if (explosions[i].delete === true) {
+            explosions.splice(i, 1);
         } else {
             explosions[i].update();
         }
@@ -69,7 +69,7 @@ function update(){
 }
 
 // DRAW
-function draw(){
+function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // background Draw
@@ -103,7 +103,7 @@ function draw(){
 }
 
 // Game loop
-function loop(){
+function loop() {
     draw();
     update();
     enemieSpaw();
@@ -112,4 +112,3 @@ function loop(){
 }
 
 loop();
-

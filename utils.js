@@ -23,13 +23,14 @@ function keyUp(event) {
     imgWidth : Width - imgHeight : height
 **/
 
-const Backgrounds =['bg1_1.png', 'bg1_2.png',
-                    'bg2_1.png', 'bg2_2.png',
-                    'bg3_1.png', 'bg3_2.png',
-                    'bg4_1.png', 'bg4_2.png'];
+const Backgrounds = ['bg1_1.png', 'bg1_2.png',
+    'bg2_1.png', 'bg2_2.png',
+    'bg3_1.png', 'bg3_2.png',
+    'bg4_1.png', 'bg4_2.png'
+];
 
 class Background {
-    constructor(img, speedX, imgWidth = 1345, imgHeight = 640){
+    constructor(img, speedX, imgWidth = 1345, imgHeight = 640) {
         this.bgImg = new Image();
         this.bgImg.src = './assets/bg/' + img;
         this.bgWidth = imgWidth;
@@ -39,14 +40,14 @@ class Background {
         this.y = 0;
     }
 
-    update(){
-        if (this.x <= -this.bgImg.width){
+    update() {
+        if (this.x <= -this.bgImg.width) {
             this.x = 0;
         }
         this.x -= this.speedX;
     }
 
-    draw(){
+    draw() {
         ctx.drawImage(this.bgImg, this.x, 0, this.bgWidth, this.bgHeight);
         ctx.drawImage(this.bgImg, this.x + this.bgWidth, 0, this.bgWidth, this.bgHeight);
     }
@@ -60,7 +61,7 @@ class Background {
 let explosions = [];
 
 class explosion {
-    constructor(imgExplose, spriteExploseSize, posX, posY){
+    constructor(imgExplose, spriteExploseSize, posX, posY) {
         this.imgExplose = imgExplose;
         this.spriteExploseSize = spriteExploseSize;
         this.x = posX - this.spriteExploseSize / 2;
@@ -70,29 +71,28 @@ class explosion {
         this.delete = false;
     }
 
-    update(){
+    update() {
         this.frameCounter = this.frameCounter + 1;
         console.log(this.frameCounter);
-        if(this.frameCounter % 4 === 0){
+        if (this.frameCounter % 4 === 0) {
             this.frameIndex += this.spriteExploseSize;
-            if(this.frameIndex > this.spriteExploseSize * 7){
+            if (this.frameIndex > this.spriteExploseSize * 7) {
                 this.delete = true;
             }
         }
     }
 
-    draw(){
+    draw() {
         ctx.drawImage(this.imgExplose, this.frameIndex, 0, this.spriteExploseSize, this.spriteExploseSize, this.x, this.y, this.spriteExploseSize, this.spriteExploseSize);
     }
 }
 
-
 /** random int
-* @param {int} min : min int value include
-* @param {int} max : max int value exclude
-* @param {0 | 1} operator : 0 max exclude (default) / 1 max include
-* @return {number} random int
-**/
+ * @param {int} min : min int value include
+ * @param {int} max : max int value exclude
+ * @param {0 | 1} operator : 0 max exclude (default) / 1 max include
+ * @return {number} random int
+ **/
 function getRandomInt(min, max, operator = 0) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -100,19 +100,19 @@ function getRandomInt(min, max, operator = 0) {
 }
 
 /** random float
-* @param {float} min : min value include
-* @param {float} max : max value exclude
-* @param operator : 0 max exclude (default) / 1 max include
-* @return {number} random float
-**/
+ * @param {float} min : min value include
+ * @param {float} max : max value exclude
+ * @param operator : 0 max exclude (default) / 1 max include
+ * @return {number} random float
+ **/
 function getRandom(min, max, operator = 0) {
     return Math.random() * (max - min + operator) + min;
 }
 
 /** random from an array
-* @param {array} arr  array of values to pick from
-* @return {any} random member of array
-**/
+ * @param {array} arr  array of values to pick from
+ * @return {any} random member of array
+ **/
 function getRandomArray(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }

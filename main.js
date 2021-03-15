@@ -1,6 +1,7 @@
 // Init Variables
 let frames = 0;
 let playerChoice = 1;
+let lang = "fr";
 ;
 const GAMESTATE = {
     MENU: 0,
@@ -73,11 +74,14 @@ function update() {
 
     // Player update
     player.update();
+
+    enemieSpaw();
 }
 
 // DRAW
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
 
     // background Draw
     layers.forEach(layer => {
@@ -88,7 +92,7 @@ function draw() {
     ctx.fillStyle = '#000';
     ctx.fillRect(0, 0, canvas.width, 64);
     ctx.fillStyle = 'white';
-    ctx.strokeText('Press "UP" key to active jetpack - "space" to shoot. lives ' + player.lives, 300, 20);
+    ctx.strokeText('lives ' + player.lives, 300, 20);
     //ctx.fillText("Autre exemple", 100, 60);
 
     // Player and Ennemies Draw
@@ -107,13 +111,25 @@ function draw() {
 
     player.draw();
 
+    if (gameState === GAMESTATE.PAUSE) {
+        ctx.rect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "rgba(0,0,0,0.7)";
+        ctx.fill();
+
+        ctx.fillStyle = "white";
+        ctx.textAlign = "center";
+        ctx.font = fontTitle;
+        ctx.fillText("Pause", canvas.width / 2, canvas.height / 2);
+        ctx.font = fontTxt;
+        ctx.fillText(resumeTxt[lang], canvas.width / 2, canvas.height / 2 + lineHeight);
+    }
+
 }
 
 // Game loop
 function loop() {
     draw();
     update();
-    enemieSpaw();
     frames++;
     requestAnimationFrame(loop);
 }

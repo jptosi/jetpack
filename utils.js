@@ -10,9 +10,7 @@ function keyDown(event) {
         bulletSpaw();
     }
     if(event.key === "Escape") {
-        console.log("Avant: " + gameState);
         tooglePause();
-        console.log("Avant: " + gameState);
     }
 }
 
@@ -22,7 +20,8 @@ function keyUp(event) {
     }
 }
 
-/** Functions
+/**
+    Functions
 **/
 function tooglePause(){
     if (gameState === GAMESTATE.RUNNING){
@@ -31,6 +30,22 @@ function tooglePause(){
         gameState = GAMESTATE.RUNNING;
     }
 }
+
+/**
+    Texts
+**/
+const lineHeight = 36;
+const fontTitle = "36px Arial";
+const fontTxt = "24px Arial";
+
+const resumeTxt = {
+    en : 'press "Escape" to resume',
+    fr : 'appuyez sur la touche "Esc" pour retourner au jeu'
+};
+const controlKeyTxt = {
+    en : 'Press "UP" key to active jetpack - "space" to shoot.',
+    fr : 'appuyer sur la touche "UP" pour activer le jetpack - "espace" pour tirer.',
+};
 
 
 /** Background class

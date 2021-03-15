@@ -88,10 +88,9 @@ class explosion {
 
     update() {
         this.frameCounter = this.frameCounter + 1;
-        console.log(this.frameCounter);
         if (this.frameCounter % 4 === 0) {
             this.frameIndex += this.spriteExploseSize;
-            if (this.frameIndex > this.spriteExploseSize * 7) {
+            if (this.frameIndex > this.spriteExploseSize * 6) {
                 this.delete = true;
             }
         }

@@ -1,7 +1,7 @@
 // Init Variables
 let frames = 0;
 let playerChoice = 1;
-let backgroundChoice = 3;
+;
 const GAMESTATE = {
     MENU: 0,
     RUNNING: 1,
@@ -25,6 +25,7 @@ document.addEventListener("keyup", keyUp, false);
 
 // init Layers
 let layers = [];
+let backgroundChoice = getRandomInt(0,4);
 layers.push(new Background(Backgrounds[2 * backgroundChoice], 0.05));
 layers.push(new Background(Backgrounds[(2 * backgroundChoice) + 1], 0.3));
 

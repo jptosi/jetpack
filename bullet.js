@@ -17,7 +17,6 @@ class Bullet {
         this.bulletId = 0;
         this.isHit = false;
         this.bulletTravelMax = getRandomInt(350, 450);
-        console.log(this.bulletTravelMax);
         this.explose = false;
         this.delete = false;
     };

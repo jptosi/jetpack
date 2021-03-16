@@ -2,7 +2,9 @@
 let frames = 0;
 let playerChoice = 1;
 let lang = "fr";
-;
+let interval;
+let gameFps = 60;
+
 const GAMESTATE = {
     MENU: 0,
     RUNNING: 1,
@@ -75,7 +77,9 @@ function update() {
     // Player update
     player.update();
 
-    enemieSpaw();
+    if (frames % gameFps === 0) {
+        enemieSpaw();
+    }
 }
 
 // DRAW
@@ -131,7 +135,8 @@ function loop() {
     draw();
     update();
     frames++;
-    requestAnimationFrame(loop);
+    // requestAnimationFrame(loop);
 }
 
-loop();
+//loop();
+interval = setInterval(loop, 1 / gameFps);

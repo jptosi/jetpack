@@ -103,7 +103,7 @@ class explosion {
 
     update() {
         this.frameCounter = this.frameCounter + 1;
-        if (this.frameCounter % 4 === 0) {
+        if (this.frameCounter % 10    === 0) {
             this.frameIndex += this.spriteExploseSize;
             if (this.frameIndex > this.spriteExploseSize * 6) {
                 this.delete = true;

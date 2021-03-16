@@ -13,7 +13,7 @@ class Enemy {
         this.enemyFrame = getRandomInt(0, 5);
         this.x = canvas.width;
         this.y = row + getRandomInt(0, 2, 1) * spriteHeight;
-        this.speedx = Math.random() + 1;
+        this.speedx = getRandom(0.3, 0.5);
         this.frameImg = 0;
         this.onScreen = true;
         this.isCollisional = true;
@@ -40,7 +40,7 @@ class Enemy {
         }
 
         // calculate image frame - animation enemy
-        if (frames % 10 === 0) {
+        if (frames % gameFps === 0) {
             this.frameImg += spriteWidth;
             if (this.frameImg > spriteWidth * 3) {
                 this.frameImg = 0;

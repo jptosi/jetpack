@@ -11,12 +11,13 @@ class Player {
         this.playerFrame = playerFrame;
         this.x = px;
         this.y = py;
-        this.gravity = 2;
+        this.gravity = 1;
         this.isJetOn = false;
         this.frameImg = 0;
         this.isHit = false;
         this.imun = 0;
         this.lives = 3;
+        this.immortal = 6;
     }
 
     update() {
@@ -32,14 +33,14 @@ class Player {
 
         if (this.isHit === true) {
             this.imun = this.imun + 1;
-            if (this.imun >= 100) {
+            if (this.imun >= gameFps * this.immortal) {
                 this.isHit = false;
                 this.imun = 0;
             }
         }
 
         // calculate image frame - animation player
-        if (frames % 10 === 0) {
+        if (frames % gameFps === 0) {
             this.frameImg += spriteSize;
             if (this.frameImg > spriteSize * 3) {
                 this.frameImg = 0;
@@ -63,7 +64,7 @@ class Player {
             }
             ctx.globalAlpha = 1.0;
         } else {
-            let gamestate = "gameover";
+            gameState = GAMESTATE.GAMEOVER;
         }
     }
 }

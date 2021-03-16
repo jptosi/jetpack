@@ -38,5 +38,7 @@ class Bullet {
 }
 
 function bulletSpaw() {
-    bullets.push(bullet = new Bullet());
+    if(!player.isHit){
+        bullets.push(bullet = new Bullet());
+    }
 }

@@ -4,7 +4,6 @@ playerImg.src = './assets/spritesPlayer.png'
 const spriteSize = 64;
 const boundingbox = 15;
 const smokeFrame = 4;
-let keyBoost = false;
 
 class Player {
     constructor(playerFrame = 0, px = 75, py = canvas.height / 2) {
@@ -18,10 +17,11 @@ class Player {
         this.imun = 0;
         this.lives = 3;
         this.immortal = 6;
+        this.keyBoost = false;
     }
 
     update() {
-        if (keyBoost === true && this.y > 64) {
+        if (this.keyBoost === true && this.y > 64) {
             this.isJetOn = true;
             this.y -= this.gravity;
         } else if (this.y === canvas.height - spriteSize) {

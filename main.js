@@ -93,8 +93,6 @@ function draw() {
     });
 
     // GUI Draw
-    ctx.fillStyle = '#000';
-    ctx.fillRect(0, 0, canvas.width, 64);
     ctx.fillStyle = 'white';
     ctx.strokeText('lives ' + player.lives, 300, 20);
     //ctx.fillText("Autre exemple", 100, 60);
@@ -135,8 +133,6 @@ function loop() {
     draw();
     update();
     frames++;
-    // requestAnimationFrame(loop);
 }
 
-//loop();
 interval = setInterval(loop, 1 / gameFps);

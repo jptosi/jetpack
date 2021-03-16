@@ -13,7 +13,7 @@ class Enemy {
         this.enemyFrame = getRandomInt(0, 5);
         this.x = canvas.width;
         this.y = row + getRandomInt(0, 2, 1) * spriteHeight;
-        this.speedx = getRandom(0.3, 0.5);
+        this.speedx = getRandom(0.4, 0.6);
         this.frameImg = 0;
         this.onScreen = true;
         this.isCollisional = true;

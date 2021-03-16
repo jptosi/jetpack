@@ -3,7 +3,7 @@
 **/
 function keyDown(event) {
     if (event.keyCode == 38) {
-        keyBoost = true;
+        player.keyBoost = true;
     }
     if (event.keyCode == 32) {
         fire = true;
@@ -16,7 +16,7 @@ function keyDown(event) {
 
 function keyUp(event) {
     if (event.keyCode == 38) {
-        keyBoost = false;
+        player.keyBoost = false;
     }
 }
 

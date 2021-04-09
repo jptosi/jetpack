@@ -1,0 +1,10 @@
+{
+    "en": [{
+        "resumeTxt": "press 'Escape' to resume.",
+        "controlKeyTxt": "Press 'UP' key to active jetpack - 'SPACE' to shoot."
+    }],
+    "fr": [{
+        "resumeTxt": "appuyez sur la touche 'Esc' pour retourner au jeu.",
+        "controlKeyTxt": "appuyer sur la touche 'UP' pour activer le jetpack - 'espace' pour tirer."
+    }]
+}

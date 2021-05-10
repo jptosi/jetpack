@@ -78,8 +78,8 @@ class Background {
     }
 
     draw() {
-        ctx.drawImage(this.bgImg, this.x, 0, this.bgWidth, this.bgHeight);
-        ctx.drawImage(this.bgImg, this.x + this.bgWidth, 0, this.bgWidth, this.bgHeight);
+        ctx.drawImage(this.bgImg, this.x, this.y, this.bgWidth, this.bgHeight);
+        ctx.drawImage(this.bgImg, this.x + this.bgWidth, this.y, this.bgWidth, this.bgHeight);
     }
 
 }
